@@ -154,3 +154,42 @@ filterButtons.forEach(button => {
 });
 
 
+// Keep the current page highlighted in desktop and mobile nav menus.
+(function setActiveNavLink() {
+  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  const navLinks = document.querySelectorAll(".desktop-menu a, .mobile-menu a");
+
+  if (!navLinks.length) return;
+
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (!href) return;
+
+    const linkPath = href.split("/").pop();
+    const isActive =
+      linkPath === currentPath ||
+      (currentPath === "" && linkPath === "index.html");
+
+    link.classList.toggle("active", isActive);
+  });
+
+  if (!document.getElementById("active-nav-link-styles")) {
+    const style = document.createElement("style");
+    style.id = "active-nav-link-styles";
+    style.textContent = `
+      .desktop-menu a.active {
+        color: orange !important;
+      }
+
+      .desktop-menu a.active::after {
+        transform: scaleX(1) !important;
+      }
+
+      .mobile-menu a.active {
+        color: orange !important;
+        padding-left: 8px;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+})();
