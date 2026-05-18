@@ -325,18 +325,42 @@
 
             .slide .content {
                 padding: 1.35rem;
+                max-width: 100%;
+                width: 100%;
+                margin: 0;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding-top: 4.5rem;
             }
 
             .slide .content h1 {
                 font-size: 2.1rem;
+                width: 100%;
+                margin-bottom: 0.85rem;
             }
 
             .slide .content p {
                 font-size: 1rem;
+                max-width: 18rem;
+                margin-left: 0;
+                margin-right: 0;
             }
 
             .hero-slider {
                 padding: 0.65rem;
+            }
+
+            .slide {
+                min-height: 72vh;
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+
+            .slide .overlay {
+                background: linear-gradient(135deg, rgba(14, 10, 6, 0.78), rgba(14, 10, 6, 0.3));
             }
 
             .social-icons {
