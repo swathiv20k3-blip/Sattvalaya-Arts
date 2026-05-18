@@ -1,0 +1,2790 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f5f5;
+overflow-x:hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+.custom-navbar{
+background: #fafafa;
+padding: 12px 20px;
+}
+
+/* ================= LOGO ================= */
+
+.logo-section{
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.logo-section img{
+width: 60px;
+height: 60px;
+object-fit: cover;
+}
+
+.brand-text h2{
+color: #0c0b0b;
+font-size: 24px;
+margin: 0;
+font-weight: 700;
+}
+
+.brand-text p{
+color: #3a3939;
+margin: 0;
+font-size: 14px;
+}
+
+/* ================= DESKTOP MENU ================= */
+
+.desktop-menu{
+display: flex;
+align-items: center;
+gap: 30px;
+}
+
+.desktop-menu a{
+text-decoration: none;
+color: #3f3e3e;
+font-size: 18px;
+font-weight: 500;
+transition: 0.3s;
+position: relative;
+padding-bottom: 6px;
+}
+
+.desktop-menu a::after{
+content: "";
+position: absolute;
+left: 0;
+bottom: 0;
+width: 100%;
+height: 2px;
+background: orange;
+transform: scaleX(0);
+transform-origin: left;
+transition: transform 0.3s ease;
+}
+
+.desktop-menu a:hover{
+color: orange;
+}
+
+.desktop-menu a:hover::after{
+transform: scaleX(1);
+}
+
+/* ================= HAMBURGER ================= */
+
+.navbar-toggler{
+display: none;
+background: transparent;
+}
+
+.navbar-toggler:focus{
+box-shadow: none;
+}
+
+/* ================= MOBILE SIDEBAR ================= */
+
+.mobile-sidebar{
+position: fixed;
+top: 0;
+right: -100%;
+width: 180px;
+height: 70vh;
+background: #f5f5f5;
+z-index: 9999;
+padding: 25px;
+transition: 0.4s ease;
+}
+
+.mobile-sidebar.active{
+right: 0;
+}
+
+/* ================= CLOSE BUTTON ================= */
+
+.close-btn{
+font-size: 30px;
+cursor: pointer;
+margin-bottom: 40px;
+color: #222;
+}
+
+/* ================= MOBILE MENU ================= */
+
+.mobile-menu{
+list-style: none;
+padding: 0;
+}
+
+.mobile-menu li{
+margin-bottom: 28px;
+}
+
+.mobile-menu li a{
+text-decoration: none;
+color: #2f3542;
+/* font-size: 18px; */
+font-weight: 400;
+transition: 0.3s;
+}
+
+.mobile-menu li a:hover{
+color: orange;
+padding-left: 8px;
+}
+
+/* ================= OVERLAY ================= */
+
+.menu-overlay{
+position: fixed;
+/* top: 0; */
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.4);
+opacity: 0;
+visibility: hidden;
+transition: 0.3s;
+z-index: 999;
+}
+
+.menu-overlay.active{
+opacity: 1;
+visibility: visible;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media(max-width:991px){
+
+/* SHOW HAMBURGER */
+.navbar-toggler{
+display: block;
+}
+
+/* HIDE DESKTOP MENU */
+.desktop-menu{
+display: none;
+}
+
+.brand-text h2{
+font-size: 25px;
+}
+
+.brand-text p{
+font-size: 13px;
+}
+
+.logo-section img{
+width: 50px;
+height: 50px;
+}
+
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media(max-width:576px){
+/* SHOW HAMBURGER */
+.navbar-toggler{
+display: block;
+}
+
+/* HIDE DESKTOP MENU */
+.desktop-menu{
+display: none;
+}
+
+.brand-text h2{
+font-size: 25px;
+}
+
+.brand-text p{
+font-size: 13px;
+}
+
+.logo-section img{
+width: 60px;
+height: 60px;
+}
+
+.custom-navbar{
+padding: 10px 15px;
+}
+
+.mobile-sidebar{
+width: 250px;
+}
+
+.mobile-menu li a{
+font-size: 18px;
+}
+
+}
+/* ================= HERO SLIDER ================= */
+
+.hero-slider{
+position:relative;
+width:100%;
+height:90vh;
+overflow:hidden;
+border-radius:25px;
+margin:10px;
+}
+
+/* SLIDES */
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+opacity:0;
+transition:1.5s ease-in-out;
+}
+
+/* ACTIVE SLIDE */
+
+.slide.active{
+opacity:1;
+z-index:1;
+}
+
+/* DARK OVERLAY */
+
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.35);
+}
+
+/* CONTENT */
+
+.content{
+position:absolute;
+top:50%;
+left:10%;
+transform:translateY(-50%);
+color:white;
+z-index:2;
+max-width:600px;
+}
+
+/* HEADING */
+
+.content h1{
+font-size:80px;
+line-height:85px;
+font-weight:700;
+color:#ff5b21;
+
+/* CLEAR TEXT */
+text-shadow:3px 3px 10px rgba(0,0,0,0.5);
+
+margin-bottom:20px;
+}
+
+/* PARAGRAPH */
+
+.content p{
+font-size:22px;
+line-height:35px;
+margin-bottom:30px;
+
+text-shadow:2px 2px 10px rgba(0,0,0,0.7);
+}
+
+/* BUTTON */
+
+.content button{
+border:none;
+padding:18px 38px;
+border-radius:50px;
+background:linear-gradient(to right,#ff9f2f,#ff7b22);
+color:white;
+font-size:20px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.content button:hover{
+transform:translateY(-4px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+.content{
+    left:7%;
+    right:7%;
+}
+
+.content h1{
+    font-size:45px;
+    line-height:50px;
+}
+
+.content p{
+    font-size:17px;
+    line-height:28px;
+}
+
+.content button{
+    font-size:17px;
+    padding:14px 28px;
+}
+}
+/* ================= SOCIAL ICONS ================= */
+
+.social-icons{
+position:fixed;
+left:0;
+top:45%;
+transform:translateY(-50%);
+z-index:999;
+}
+.social-icons a{
+width:42px;
+height:42px;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:8px 0;
+border-radius:0 10px 10px 0;
+text-decoration:none;
+color:#333;
+box-shadow:0 2px 10px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+
+.social-icons a:hover{
+transform:translateX(5px);
+}
+
+.fa-facebook-f{
+color:#1877f2;
+}
+
+.fa-instagram{
+color:#e1306c;
+}
+
+.fa-youtube{
+color:red;
+}
+
+.fa-linkedin-in{
+color:#0a66c2;
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+width:60px;
+height:60px;
+background:#25d366;
+color:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+text-decoration:none;
+z-index:999;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ================= SECTION ================= */
+
+.choose-section{
+    padding:60px 20px;
+}
+
+/* TITLE */
+
+.section-title{
+    text-align:center;
+    margin-bottom:48px;
+}
+
+.section-title h1{
+    font-size:34px;
+    font-weight:700;
+    color:#1d2433;
+    margin-bottom:12px;
+}
+
+.underline{
+    width:80px;
+    height:4px;
+    background:#f68b1f;
+    margin:auto;
+    border-radius:20px;
+    margin-bottom:30px;
+}
+
+.section-title p{
+    color:#6b7280;
+    font-size:16px;
+}
+
+
+
+
+
+
+/* =========================
+    CTA SECTION
+========================== */
+
+.cta-section{
+    background:linear-gradient(90deg,#ff6500,#e91e83);
+    text-align:center;
+    padding:70px 20px;
+    color:#fff;
+}
+
+.cta-icon{
+    width:70px;
+    height:70px;
+    margin:auto;
+    margin-bottom:15px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:35px;
+    color:#fff;
+}
+
+.cta-section h1{
+    font-size:55px;
+    margin-bottom:15px;
+    font-weight:700;
+}
+
+.cta-section p{
+    font-size:17px;
+    margin-bottom:35px;
+}
+
+.cta-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    /* border-radius:40px; */
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 35px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.4s;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+}
+
+.btn-primary{
+    background:#fff;
+    color:#ff6500;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px);
+}
+
+.btn-outline{
+    border:2px solid #fff;
+    color:#fff;
+}
+
+.btn-outline:hover{
+    background:#fff;
+    color:#ff6500;
+}
+
+/* =========================
+    FOOTER
+========================== */
+
+footer{
+    background:#07142d;
+    color:#d8d8d8;
+    padding:70px 10%;
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:50px;
+}
+
+/* LOGO AREA */
+
+.footer-logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.footer-logo img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+    background:#fff;
+    padding:8px;
+}
+
+.footer-logo h2{
+    color:#fff;
+    font-size:32px;
+}
+
+.footer-about{
+    line-height:1.9;
+    margin-bottom:25px;
+    font-size:15px;
+}
+
+/* SOCIAL ICONS */
+
+.social-icons{
+    display:flex;
+    gap:15px;
+}
+
+.social-icons a{
+    width:42px;
+    height:42px;
+    background:#ff7b00;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    transition:0.4s;
+}
+
+.social-icons a:hover{
+    transform:translateY(-5px);
+}
+
+/* TITLES */
+
+.footer-title{
+    color:#ff7b00;
+    margin-bottom:25px;
+    font-size:24px;
+}
+
+/* QUICK LINKS */
+
+.footer-links a{
+    display:block;
+    color:#d8d8d8;
+    text-decoration:none;
+    margin-bottom:15px;
+    transition:0.3s;
+    font-size:15px;
+}
+
+.footer-links a:hover{
+    color:#ff7b00;
+    padding-left:5px;
+}
+
+.footer-links a i{
+    margin-right:10px;
+}
+
+/* CONTACT INFO */
+
+.contact-info p{
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:15px;
+}
+
+.contact-info i{
+    color:#ff7b00;
+}
+
+/* NEWSLETTER */
+
+.newsletter p{
+    margin-bottom:20px;
+    line-height:1.8;
+    font-size:15px;
+}
+
+.newsletter-box{
+    display:flex;
+    overflow:hidden;
+    border-radius:30px;
+    background:#fff;
+    max-width:320px;
+}
+
+.newsletter-box input{
+    flex:1;
+    border:none;
+    padding:15px;
+    outline:none;
+    font-size:14px;
+}
+
+.newsletter-box button{
+    width:70px;
+    border:none;
+    background:#ff7b00;
+    color:#fff;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* COPYRIGHT */
+
+.copyright{
+    border-top:1px solid rgba(255,255,255,0.08);
+    margin-top:50px;
+    padding-top:25px;
+    text-align:center;
+    font-size:14px;
+    color:#bfbfbf;
+}
+
+.copyright span{
+    color:#ff7b00;
+    font-weight:600;
+}
+
+/* =========================
+    RESPONSIVE
+========================== */
+
+@media(max-width:1100px){
+
+    .footer-container{
+    grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .cta-section h1{
+    font-size:36px;
+    }
+
+    .footer-container{
+    grid-template-columns:1fr;
+    }
+
+    footer{
+    padding:60px 25px;
+    }
+
+    .footer-logo h2{
+    font-size:28px;
+    }
+
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    width: 100%;
+    min-height: 230px;
+    background:
+    linear-gradient(90deg, rgba(255, 140, 0, 0.86), rgba(255, 90, 0, 0.82)),
+    url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 52px 20px 48px;
+}
+
+.hero-content{
+    max-width:900px;
+    margin:auto;
+}
+
+.hero h1{
+    font-size: 56px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+}
+
+.subtitle{
+    font-size: 21px;
+    margin-bottom: 0;
+}
+
+
+/* ================= HERO BOX ================= */
+
+.class-box{
+    display: flex;
+    width: calc(100% + 40px);
+    min-height: 300px;
+    margin: 48px -20px -48px;
+    padding: 48px 20px;
+    border-radius: 0;
+    background:
+    linear-gradient(rgba(116, 61, 16, 0.82), rgba(116, 61, 16, 0.82)),
+    url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1600&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    backdrop-filter: none;
+}
+
+.class-box i{
+    font-size: 58px;
+    margin-bottom: 18px;
+    color: #ffffff;
+}
+
+.class-box h2{
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    color: #ffffff;
+}
+
+.class-box p{
+    max-width: 720px;
+    font-size: 17px;
+    line-height: 1.55;
+    margin: 0;
+    color: #ffffff;
+}
+
+
+/* ================= SECTION ================= */
+
+.classes-section{
+    padding: 56px 0;
+}
+
+
+/* ================= CARD ================= */
+
+.class-card,
+.course-card{
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    box-shadow: 0 24px 50px rgba(61, 31, 5, 0.16);
+}
+
+
+/* ================= IMAGE ================= */
+
+.class-image,
+.course-image{
+    width: 50%;
+    min-height: 360px;
+    flex-shrink: 0;
+}
+
+.class-image img,
+.course-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.class-content,
+.course-content,
+.advanced-content{
+    width: 50%;
+    padding: 1.55rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+}
+
+.advanced-card{
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    box-shadow: 0 24px 50px rgba(61, 31, 5, 0.16);
+}
+
+.advanced-image{
+    width: 50%;
+    min-height: 360px;
+    flex-shrink: 0;
+}
+
+.advanced-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.badge{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ff9b2f, #ff5b2e);
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 700;
+    margin-bottom: 0.9rem;
+}
+
+.class-content h1,
+.course-content h1,
+.advanced-content h1{
+    font-size: 2rem;
+    line-height: 1.15;
+    color: #273142;
+    margin-bottom: 0.8rem;
+    font-family: 'Cinzel', serif;
+}
+
+.description{
+    color: #667085;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 1.15rem;
+}
+
+.features{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.35rem;
+}
+
+.features li{
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: #5c6678;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 0.7rem;
+}
+
+.features li i{
+    color: #ff6d1f;
+    margin-top: 0.32rem;
+    flex-shrink: 0;
+}
+
+.class-content .btn,
+.course-content .btn,
+.advanced-content .btn{
+    width: fit-content;
+    padding: 0.8rem 1.45rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ff8d1f, #ff4d3d);
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 14px 28px rgba(255, 107, 44, 0.28);
+}
+
+.class-content .btn:hover,
+.course-content .btn:hover,
+.advanced-content .btn:hover{
+    transform: translateY(-3px);
+    color: #ffffff;
+}
+
+@media(max-width:991px){
+    .class-card,
+    .course-card,
+    .advanced-card{
+        flex-direction: column;
+        border-radius: 22px;
+    }
+
+    .class-image,
+    .course-image,
+    .advanced-image,
+    .class-content,
+    .course-content,
+    .advanced-content{
+        width: 100%;
+    }
+
+    .class-image,
+    .course-image,
+    .advanced-image{
+        min-height: 320px;
+    }
+}
+
+@media(max-width:576px){
+    .classes-section{
+        padding: 56px 16px;
+    }
+
+    .class-content,
+    .course-content,
+    .advanced-content{
+        padding: 1.5rem;
+    }
+
+    .class-content h1,
+    .course-content h1,
+    .advanced-content h1{
+        font-size: 1.75rem;
+    }
+
+    .features li{
+        font-size: 0.95rem;
+    }
+}
+
+/* ================= SOCIAL ICON BORDER FIX ================= */
+
+.social-icons {
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: transparent !important;
+    padding: 14px 8px 14px 0 !important;
+    gap: 0 !important;
+    border-radius: 0 !important;
+}
+
+.social-icons a {
+    background: #ffffff !important;
+    width: 36px !important;
+    height: 36px !important;
+    margin: 7px 0 !important;
+    border: 0 !important;
+    border-radius: 0 10px 10px 0 !important;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.16) !important;
+}
+
+.social-icons a:hover {
+    background: #000000 !important;
+    border-color: #ff7b00 !important;
+    color: #ffffff !important;
+}
+
+.social-icons a:hover i {
+    color: #ffffff !important;
+}
+
+/* ================= GLOBAL NAVBAR STICKY FIX ================= */
+
+html {
+    scroll-padding-top: 92px;
+}
+
+.custom-navbar {
+    background: #dff8ff !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1100 !important;
+    margin-bottom: 18px !important;
+}
+
+.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+}
+
+body {
+    padding-top: 70px !important;
+}
+
+/* ================= CLASSES CARD CLEANUP ================= */
+
+.learning-card,
+.learning-option,
+.format-card,
+.class-mode-card,
+.mode-card,
+.class-card:has(.fa-landmark),
+.card:has(.fa-landmark) {
+    max-width: 380px !important;
+    min-height: auto !important;
+    padding: 34px 28px !important;
+    border-radius: 14px !important;
+}
+
+.learning-card > .fa-landmark,
+.learning-option > .fa-landmark,
+.format-card > .fa-landmark,
+.class-mode-card > .fa-landmark,
+.mode-card > .fa-landmark,
+.class-card > .fa-landmark,
+.card > .fa-landmark,
+.learning-card .fa-landmark:first-child,
+.learning-option .fa-landmark:first-child,
+.format-card .fa-landmark:first-child,
+.class-mode-card .fa-landmark:first-child,
+.mode-card .fa-landmark:first-child,
+.class-card .fa-landmark:first-child,
+.card .fa-landmark:first-child {
+    display: none !important;
+}
+
+.learning-card h2,
+.learning-option h2,
+.format-card h2,
+.class-mode-card h2,
+.mode-card h2,
+.class-card:has(.fa-landmark) h2,
+.card:has(.fa-landmark) h2 {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+    margin: 18px 0 16px !important;
+}
+
+.learning-card p,
+.learning-option p,
+.format-card p,
+.class-mode-card p,
+.mode-card p,
+.class-card:has(.fa-landmark) p,
+.card:has(.fa-landmark) p {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    margin-bottom: 22px !important;
+}
+
+.learning-card ul,
+.learning-option ul,
+.format-card ul,
+.class-mode-card ul,
+.mode-card ul,
+.class-card:has(.fa-landmark) ul,
+.card:has(.fa-landmark) ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.learning-card li,
+.learning-option li,
+.format-card li,
+.class-mode-card li,
+.mode-card li,
+.class-card:has(.fa-landmark) li,
+.card:has(.fa-landmark) li {
+    font-size: 14px !important;
+    gap: 10px !important;
+    margin-bottom: 14px !important;
+}
+
+.learning-card li i + i,
+.learning-option li i + i,
+.format-card li i + i,
+.class-mode-card li i + i,
+.mode-card li i + i,
+.class-card:has(.fa-landmark) li i + i,
+.card:has(.fa-landmark) li i + i {
+    display: none !important;
+}
+
+.learning-card li::before,
+.learning-option li::before,
+.format-card li::before,
+.class-mode-card li::before,
+.mode-card li::before,
+.class-card:has(.fa-landmark) li::before,
+.card:has(.fa-landmark) li::before {
+    content: none !important;
+}
+
+@media(max-width: 768px) {
+    .learning-card,
+    .learning-option,
+    .format-card,
+    .class-mode-card,
+    .mode-card,
+    .class-card:has(.fa-landmark),
+    .card:has(.fa-landmark) {
+        max-width: 100% !important;
+        padding: 28px 22px !important;
+    }
+
+    .learning-card h2,
+    .learning-option h2,
+    .format-card h2,
+    .class-mode-card h2,
+    .mode-card h2,
+    .class-card:has(.fa-landmark) h2,
+    .card:has(.fa-landmark) h2 {
+        font-size: 28px !important;
+    }
+}
+
+/* ================= CLASS FORMAT CARD FINAL FIX ================= */
+
+.fa-landmark,
+.fa-building-columns,
+.fa-university {
+    display: none !important;
+}
+
+.learning-card:hover,
+.learning-option:hover,
+.format-card:hover,
+.class-mode-card:hover,
+.mode-card:hover,
+.option-card:hover,
+.class-card:hover,
+.card:hover {
+    transform: none !important;
+}
+
+.learning-card li,
+.learning-option li,
+.format-card li,
+.class-mode-card li,
+.mode-card li,
+.option-card li,
+.class-card li,
+.card li {
+    color: #172033 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.learning-card li i,
+.learning-option li i,
+.format-card li i,
+.class-mode-card li i,
+.mode-card li i,
+.option-card li i,
+.class-card li i,
+.card li i {
+    display: inline-flex !important;
+    color: #ff6b1a !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.learning-card li i + i,
+.learning-option li i + i,
+.format-card li i + i,
+.class-mode-card li i + i,
+.mode-card li i + i,
+.option-card li i + i,
+.class-card li i + i,
+.card li i + i {
+    display: none !important;
+}
+
+/* ================= FLEXIBLE LEARNING OPTIONS ================= */
+
+.learning-section,
+.learning-options,
+.format-section,
+.formats-section,
+.learning-formats,
+.flexible-learning {
+    padding: 70px 20px 90px !important;
+    background: #ffffff !important;
+    text-align: center !important;
+}
+
+.learning-section h1,
+.learning-section h2,
+.learning-options h1,
+.learning-options h2,
+.format-section h1,
+.format-section h2,
+.formats-section h1,
+.formats-section h2,
+.learning-formats h1,
+.learning-formats h2,
+.flexible-learning h1,
+.flexible-learning h2 {
+    font-family: 'Cinzel', serif !important;
+    font-size: 42px !important;
+    line-height: 1.15 !important;
+    color: #1f2937 !important;
+    margin: 0 0 18px !important;
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.learning-section h1::after,
+.learning-section h2::after,
+.learning-options h1::after,
+.learning-options h2::after,
+.format-section h1::after,
+.format-section h2::after,
+.formats-section h1::after,
+.formats-section h2::after,
+.learning-formats h1::after,
+.learning-formats h2::after,
+.flexible-learning h1::after,
+.flexible-learning h2::after {
+    content: none !important;
+}
+
+.learning-section p,
+.learning-options p,
+.format-section p,
+.formats-section p,
+.learning-formats p,
+.flexible-learning p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: #4b5563 !important;
+}
+
+.learning-section > p,
+.learning-options > p,
+.format-section > p,
+.formats-section > p,
+.learning-formats > p,
+.flexible-learning > p {
+    margin: 34px 0 52px !important;
+}
+
+.learning-cards,
+.format-cards,
+.options-grid,
+.learning-grid,
+.formats-grid {
+    width: min(1120px, 92%) !important;
+    margin: 0 auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 22px !important;
+}
+
+.learning-card,
+.format-card,
+.option-card,
+.learning-option,
+.format-option {
+    min-height: 338px !important;
+    padding: 38px 30px !important;
+    border: 0 !important;
+    border-radius: 12px !important;
+    background: #f8f9fb !important;
+    color: #1f2937 !important;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08) !important;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.learning-card::before,
+.format-card::before,
+.option-card::before,
+.learning-option::before,
+.format-option::before {
+    display: block;
+    margin-bottom: 18px;
+    color: #ff711f;
+    font-family: "Font Awesome 6 Free";
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.learning-card:nth-child(1)::before,
+.format-card:nth-child(1)::before,
+.option-card:nth-child(1)::before,
+.learning-option:nth-child(1)::before,
+.format-option:nth-child(1)::before {
+    content: none;
+}
+
+.learning-card:nth-child(2)::before,
+.format-card:nth-child(2)::before,
+.option-card:nth-child(2)::before,
+.learning-option:nth-child(2)::before,
+.format-option:nth-child(2)::before {
+    content: "\f109";
+}
+
+.learning-card:nth-child(3)::before,
+.format-card:nth-child(3)::before,
+.option-card:nth-child(3)::before,
+.learning-option:nth-child(3)::before,
+.format-option:nth-child(3)::before {
+    content: "\f2f1";
+}
+
+.learning-card h3,
+.format-card h3,
+.option-card h3,
+.learning-option h3,
+.format-option h3 {
+    font-family: 'Cinzel', serif !important;
+    font-size: 24px !important;
+    line-height: 1.2 !important;
+    margin: 0 0 16px !important;
+    color: inherit !important;
+}
+
+.learning-card p,
+.format-card p,
+.option-card p,
+.learning-option p,
+.format-option p {
+    max-width: 310px !important;
+    margin: 0 auto 24px !important;
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+    color: inherit !important;
+}
+
+.learning-card ul,
+.format-card ul,
+.option-card ul,
+.learning-option ul,
+.format-option ul {
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    list-style: none !important;
+    text-align: left !important;
+}
+
+.learning-card li,
+.format-card li,
+.option-card li,
+.learning-option li,
+.format-option li {
+    margin-bottom: 10px !important;
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+    color: inherit !important;
+}
+
+.learning-card li::before,
+.format-card li::before,
+.option-card li::before,
+.learning-option li::before,
+.format-option li::before {
+    content: "\f00c";
+    margin-right: 10px;
+    color: #ff711f;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.learning-card:hover,
+.format-card:hover,
+.option-card:hover,
+.learning-option:hover,
+.format-option:hover {
+    background: linear-gradient(135deg, #ff7a1a, #ff463a) !important;
+    color: #ffffff !important;
+    transform: translateY(-8px) !important;
+    box-shadow: 0 22px 42px rgba(255, 99, 35, 0.28) !important;
+}
+
+.learning-card:hover .card-icon,
+.format-card:hover .card-icon,
+.option-card:hover .card-icon,
+.learning-option:hover .card-icon,
+.format-option:hover .card-icon,
+.learning-card:hover .feature-list li i,
+.format-card:hover .feature-list li i,
+.option-card:hover .feature-list li i,
+.learning-option:hover .feature-list li i,
+.format-option:hover .feature-list li i {
+    color: #ffffff !important;
+}
+
+.learning-card:hover::before,
+.format-card:hover::before,
+.option-card:hover::before,
+.learning-option:hover::before,
+.format-option:hover::before,
+.learning-card:hover li::before,
+.format-card:hover li::before,
+.option-card:hover li::before,
+.learning-option:hover li::before,
+.format-option:hover li::before {
+    color: #ffffff !important;
+}
+
+@media(max-width: 991px) {
+    .learning-cards,
+    .format-cards,
+    .options-grid,
+    .learning-grid,
+    .formats-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media(max-width: 576px) {
+    .learning-section h1,
+    .learning-section h2,
+    .learning-options h1,
+    .learning-options h2,
+    .format-section h1,
+    .format-section h2,
+    .formats-section h1,
+    .formats-section h2,
+    .learning-formats h1,
+    .learning-formats h2,
+    .flexible-learning h1,
+    .flexible-learning h2 {
+        font-size: 32px !important;
+    }
+
+    .learning-card,
+    .format-card,
+    .option-card,
+    .learning-option,
+    .format-option {
+        min-height: auto !important;
+        padding: 32px 22px !important;
+    }
+}
+
+/* ================= YOGA SESSION DETAIL ================= */
+
+.yoga-details,
+.yoga-program,
+.wellness-program,
+.yoga-session,
+.yoga-content-section {
+    padding: 58px 20px !important;
+    background:
+    linear-gradient(rgba(28, 190, 112, 0.92), rgba(28, 190, 112, 0.92)),
+    url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600&auto=format&fit=crop') !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.yoga-details .container,
+.yoga-program .container,
+.wellness-program .container,
+.yoga-session .container,
+.yoga-content-section .container {
+    max-width: 930px !important;
+    display: grid !important;
+    grid-template-columns: 0.95fr 1fr !important;
+    align-items: center !important;
+    gap: 28px !important;
+}
+
+.yoga-info-card,
+.yoga-detail-card,
+.wellness-card,
+.session-card,
+.yoga-card {
+    width: 100% !important;
+    max-width: 340px !important;
+    justify-self: center !important;
+    background: #ffffff !important;
+    color: #2f3a4a !important;
+    border-radius: 10px !important;
+    padding: 26px 26px 28px !important;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.14) !important;
+}
+
+.yoga-info-card *,
+.yoga-detail-card *,
+.wellness-card *,
+.session-card *,
+.yoga-card * {
+    color: #2f3a4a !important;
+}
+
+.yoga-info-card h1,
+.yoga-info-card h2,
+.yoga-detail-card h1,
+.yoga-detail-card h2,
+.wellness-card h1,
+.wellness-card h2,
+.session-card h1,
+.session-card h2,
+.yoga-card h1,
+.yoga-card h2 {
+    font-family: 'Cinzel', serif !important;
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+    color: #3a4455 !important;
+    margin: 0 0 18px !important;
+    text-align: left !important;
+}
+
+.yoga-info-card p,
+.yoga-detail-card p,
+.wellness-card p,
+.session-card p,
+.yoga-card p {
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+    color: #7b8494 !important;
+    margin-bottom: 14px !important;
+    text-align: left !important;
+}
+
+.yoga-info-card p,
+.yoga-detail-card p,
+.wellness-card p,
+.session-card p,
+.yoga-card p,
+.yoga-info-card li,
+.yoga-detail-card li,
+.wellness-card li,
+.session-card li,
+.yoga-card li {
+    color: #7b8494 !important;
+}
+
+.yoga-info-card h3,
+.yoga-detail-card h3,
+.wellness-card h3,
+.session-card h3,
+.yoga-card h3 {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #2f3a4a !important;
+    margin: 18px 0 14px !important;
+    text-align: left !important;
+}
+
+.yoga-info-card ul,
+.yoga-detail-card ul,
+.wellness-card ul,
+.session-card ul,
+.yoga-card ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 18px !important;
+}
+
+.yoga-info-card li,
+.yoga-detail-card li,
+.wellness-card li,
+.session-card li,
+.yoga-card li {
+    position: relative !important;
+    padding-left: 28px !important;
+    margin-bottom: 13px !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+    color: #6b7280 !important;
+    text-align: left !important;
+}
+
+.yoga-info-card li::before,
+.yoga-detail-card li::before,
+.wellness-card li::before,
+.session-card li::before,
+.yoga-card li::before {
+    content: "\f554";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #21bf73;
+    font-family: "Font Awesome 6 Free";
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.yoga-info-card li strong,
+.yoga-detail-card li strong,
+.wellness-card li strong,
+.session-card li strong,
+.yoga-card li strong,
+.yoga-info-card b,
+.yoga-detail-card b,
+.wellness-card b,
+.session-card b,
+.yoga-card b {
+    color: #2f3a4a !important;
+}
+
+/* ================= YOGA CARD TEXT ALIGNMENT FIX ================= */
+
+.yoga-details :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card),
+.yoga-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card),
+.wellness-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card),
+.yoga-session :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card),
+.yoga-content-section :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) {
+    max-width: 392px !important;
+    padding: 30px 28px !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    text-align: left !important;
+}
+
+.yoga-details :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h1,
+.yoga-details :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h2,
+.yoga-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h1,
+.yoga-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h2,
+.wellness-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h1,
+.wellness-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h2,
+.yoga-session :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h1,
+.yoga-session :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h2,
+.yoga-content-section :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h1,
+.yoga-content-section :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h2 {
+    color: #253142 !important;
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+    margin: 0 0 16px !important;
+    text-align: left !important;
+}
+
+.yoga-details :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h1::after,
+.yoga-details :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h2::after,
+.yoga-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h1::after,
+.yoga-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h2::after,
+.wellness-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h1::after,
+.wellness-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h2::after,
+.yoga-session :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h1::after,
+.yoga-session :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h2::after,
+.yoga-content-section :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h1::after,
+.yoga-content-section :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) h2::after {
+    content: none !important;
+}
+
+.yoga-details :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) p,
+.yoga-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) p,
+.wellness-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) p,
+.yoga-session :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) p,
+.yoga-content-section :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) p {
+    color: #6f7a8a !important;
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+    margin: 0 0 16px !important;
+    text-align: left !important;
+}
+
+.yoga-details :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) :is(h3, h4, strong, b),
+.yoga-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) :is(h3, h4, strong, b),
+.wellness-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) :is(h3, h4, strong, b),
+.yoga-session :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) :is(h3, h4, strong, b),
+.yoga-content-section :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) :is(h3, h4, strong, b) {
+    color: #253142 !important;
+    font-size: 14px !important;
+    text-align: left !important;
+}
+
+.yoga-details :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) li,
+.yoga-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) li,
+.wellness-program :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) li,
+.yoga-session :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) li,
+.yoga-content-section :is(.yoga-info-card, .yoga-detail-card, .wellness-card, .session-card, .yoga-card, .content-box, .text-box, .info-card) li {
+    color: #6f7a8a !important;
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+    text-align: left !important;
+}
+
+.yoga-info-card li:nth-child(2)::before,
+.yoga-detail-card li:nth-child(2)::before,
+.wellness-card li:nth-child(2)::before,
+.session-card li:nth-child(2)::before,
+.yoga-card li:nth-child(2)::before {
+    content: "\f70c";
+}
+
+.yoga-info-card li:nth-child(3)::before,
+.yoga-detail-card li:nth-child(3)::before,
+.wellness-card li:nth-child(3)::before,
+.session-card li:nth-child(3)::before,
+.yoga-card li:nth-child(3)::before {
+    content: "\f5bb";
+}
+
+.yoga-info-card li:nth-child(4)::before,
+.yoga-detail-card li:nth-child(4)::before,
+.wellness-card li:nth-child(4)::before,
+.session-card li:nth-child(4)::before,
+.yoga-card li:nth-child(4)::before {
+    content: "\f06c";
+}
+
+.yoga-info-card .note,
+.yoga-detail-card .note,
+.wellness-card .note,
+.session-card .note,
+.yoga-card .note {
+    padding: 14px 16px !important;
+    border-radius: 8px !important;
+    background: #edfdf4 !important;
+    color: #6b7280 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+
+.yoga-info-card .btn,
+.yoga-info-card a,
+.yoga-detail-card .btn,
+.yoga-detail-card a,
+.wellness-card .btn,
+.wellness-card a,
+.session-card .btn,
+.session-card a,
+.yoga-card .btn,
+.yoga-card a {
+    width: fit-content !important;
+    padding: 10px 18px !important;
+    border-radius: 999px !important;
+    background: #21bf73 !important;
+    color: #ffffff !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+}
+
+.yoga-images,
+.wellness-images,
+.session-images,
+.yoga-gallery,
+.yoga-image-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+}
+
+.yoga-images img,
+.wellness-images img,
+.session-images img,
+.yoga-gallery img,
+.yoga-image-grid img {
+    width: 100% !important;
+    height: 96px !important;
+    object-fit: cover !important;
+    border-radius: 7px !important;
+    display: block !important;
+}
+
+@media(max-width: 991px) {
+    .yoga-details .container,
+    .yoga-program .container,
+    .wellness-program .container,
+    .yoga-session .container,
+    .yoga-content-section .container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .yoga-info-card,
+    .yoga-detail-card,
+    .wellness-card,
+    .session-card,
+    .yoga-card {
+        max-width: 420px !important;
+    }
+
+    .yoga-images,
+    .wellness-images,
+    .session-images,
+    .yoga-gallery,
+    .yoga-image-grid {
+        max-width: 420px !important;
+        margin: 0 auto !important;
+    }
+}
+
+/* ================= YOGA & WELLNESS BANNER ================= */
+
+.yoga-section,
+.yoga-classes,
+.wellness-section,
+.yoga-wellness,
+.yoga-banner {
+    padding: 46px 20px !important;
+    min-height: auto !important;
+    text-align: center !important;
+}
+
+.yoga-section h1,
+.yoga-section h2,
+.yoga-classes h1,
+.yoga-classes h2,
+.wellness-section h1,
+.wellness-section h2,
+.yoga-wellness h1,
+.yoga-wellness h2,
+.yoga-banner h1,
+.yoga-banner h2 {
+    position: relative !important;
+    display: inline-block !important;
+    font-family: 'Cinzel', serif !important;
+    font-size: 42px !important;
+    line-height: 1.15 !important;
+    margin: 0 0 28px !important;
+    color: #ffffff !important;
+}
+
+.yoga-section h1::after,
+.yoga-section h2::after,
+.yoga-classes h1::after,
+.yoga-classes h2::after,
+.wellness-section h1::after,
+.wellness-section h2::after,
+.yoga-wellness h1::after,
+.yoga-wellness h2::after,
+.yoga-banner h1::after,
+.yoga-banner h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -12px;
+    width: 70px;
+    height: 3px;
+    background: #ff8a1f;
+    border-radius: 999px;
+    transform: translateX(-50%);
+}
+
+.yoga-section p,
+.yoga-classes p,
+.wellness-section p,
+.yoga-wellness p,
+.yoga-banner p {
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    font-size: 17px !important;
+    line-height: 1.6 !important;
+    color: #ffffff !important;
+}
+
+@media(max-width: 576px) {
+    .yoga-section,
+    .yoga-classes,
+    .wellness-section,
+    .yoga-wellness,
+    .yoga-banner {
+        padding: 38px 16px !important;
+    }
+
+    .yoga-section h1,
+    .yoga-section h2,
+    .yoga-classes h1,
+    .yoga-classes h2,
+    .wellness-section h1,
+    .wellness-section h2,
+    .yoga-wellness h1,
+    .yoga-wellness h2,
+    .yoga-banner h1,
+    .yoga-banner h2 {
+        font-size: 30px !important;
+    }
+
+    .yoga-section p,
+    .yoga-classes p,
+    .wellness-section p,
+    .yoga-wellness p,
+    .yoga-banner p {
+        font-size: 15px !important;
+    }
+}
+/* ================= LOADING SCREEN ANIMATION ================= */
+
+.preloader,
+.loader,
+#preloader,
+#loader,
+.loading-screen,
+.splash-screen,
+.splash,
+.intro-screen,
+.page-loader,
+.site-loader,
+.loader-wrapper,
+.preloader-wrapper,
+.loading-page,
+.loading-overlay,
+.loader-container,
+.loading-container {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255, 140, 32, 0.18) 0 0.45rem, transparent 0.5rem),
+        radial-gradient(circle at 82% 18%, rgba(255, 91, 46, 0.16) 0 0.7rem, transparent 0.75rem),
+        radial-gradient(circle at 72% 78%, rgba(139, 94, 52, 0.12) 0 0.55rem, transparent 0.6rem),
+        linear-gradient(135deg, #fffaf5, #fff4ea 48%, #ffffff);
+    overflow: hidden;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+}
+
+.preloader::before,
+.loader::before,
+#preloader::before,
+#loader::before,
+.loading-screen::before,
+.splash-screen::before,
+.splash::before,
+.intro-screen::before,
+.page-loader::before,
+.site-loader::before,
+.loader-wrapper::before,
+.preloader-wrapper::before,
+.loading-page::before,
+.loading-overlay::before,
+.loader-container::before,
+.loading-container::before,
+.preloader::after,
+.loader::after,
+#preloader::after,
+#loader::after,
+.loading-screen::after,
+.splash-screen::after,
+.splash::after,
+.intro-screen::after,
+.page-loader::after,
+.site-loader::after,
+.loader-wrapper::after,
+.preloader-wrapper::after,
+.loading-page::after,
+.loading-overlay::after,
+.loader-container::after,
+.loading-container::after {
+    content: "";
+    position: absolute;
+    inset: -12%;
+    pointer-events: none;
+    background:
+        radial-gradient(circle, rgba(255, 126, 35, 0.24) 0 18px, transparent 19px),
+        radial-gradient(circle, rgba(255, 187, 105, 0.2) 0 12px, transparent 13px),
+        radial-gradient(circle, rgba(153, 93, 38, 0.13) 0 26px, transparent 27px),
+        radial-gradient(circle, rgba(255, 91, 46, 0.18) 0 15px, transparent 16px);
+    background-size: 240px 240px, 180px 180px, 320px 320px, 260px 260px;
+    background-position: 8% 20%, 88% 18%, 15% 82%, 74% 76%;
+    animation: loadingBallsFloat 9s ease-in-out infinite alternate;
+}
+
+.preloader::after,
+.loader::after,
+#preloader::after,
+#loader::after,
+.loading-screen::after,
+.splash-screen::after,
+.intro-screen::after,
+.splash::after,
+.page-loader::after,
+.site-loader::after,
+.loader-wrapper::after,
+.preloader-wrapper::after,
+.loading-page::after,
+.loading-overlay::after,
+.loader-container::after,
+.loading-container::after {
+    filter: blur(10px);
+    opacity: 0.65;
+    transform: scale(1.08);
+    animation-duration: 12s;
+    animation-direction: alternate-reverse;
+}
+
+.preloader > *,
+.loader > *,
+#preloader > *,
+#loader > *,
+.loading-screen > *,
+.splash-screen > *,
+.splash > *,
+.intro-screen > *,
+.page-loader > *,
+.site-loader > *,
+.loader-wrapper > *,
+.preloader-wrapper > *,
+.loading-page > *,
+.loading-overlay > *,
+.loader-container > *,
+.loading-container > * {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes loadingBallsFloat {
+    0% {
+        transform: translate3d(-18px, 12px, 0) scale(1);
+        background-position: 8% 20%, 88% 18%, 15% 82%, 74% 76%;
+    }
+
+    50% {
+        transform: translate3d(14px, -18px, 0) scale(1.03);
+        background-position: 16% 28%, 82% 26%, 22% 74%, 68% 68%;
+    }
+
+    100% {
+        transform: translate3d(24px, 18px, 0) scale(1.06);
+        background-position: 22% 18%, 76% 34%, 10% 70%, 84% 82%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .preloader::before,
+    .loader::before,
+    #preloader::before,
+    #loader::before,
+    .loading-screen::before,
+    .splash-screen::before,
+    .splash::before,
+    .intro-screen::before,
+    .page-loader::before,
+    .site-loader::before,
+    .loader-wrapper::before,
+    .preloader-wrapper::before,
+    .loading-page::before,
+    .loading-overlay::before,
+    .loader-container::before,
+    .loading-container::before,
+    .preloader::after,
+    .loader::after,
+    #preloader::after,
+    #loader::after,
+    .loading-screen::after,
+    .splash-screen::after,
+    .splash::after,
+    .intro-screen::after,
+    .page-loader::after,
+    .site-loader::after,
+    .loader-wrapper::after,
+    .preloader-wrapper::after,
+    .loading-page::after,
+    .loading-overlay::after,
+    .loader-container::after,
+    .loading-container::after {
+        animation: none;
+    }
+}
+
+/* ================= SECTION ================= */
+
+.learning-section{
+    padding:80px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h1{
+    font-family:'Playfair Display', serif;
+    font-size:70px;
+    font-weight:700;
+    color:#1f2937;
+    margin-bottom:18px;
+}
+
+.title-line{
+    width:55px;
+    height:4px;
+    background:#f97316;
+    margin:auto;
+    border-radius:20px;
+    margin-bottom:30px;
+}
+
+.section-title p{
+    font-size:22px;
+    color:#4b5563;
+    margin:0;
+}
+
+/* ================= CARDS ================= */
+
+.learning-card{
+    background:#f7f7f7;
+    border-radius:22px;
+    padding:45px 35px;
+    height:100%;
+    transition:0.4s ease;
+}
+
+.learning-card:hover{
+    transform:translateY(-8px);
+}
+
+.learning-card.active{
+    background:#f7f7f7;
+    color:#1f2937;
+}
+
+.learning-card.active p,
+.learning-card.active li{
+    color:#374151;
+}
+
+/* ================= ICON ================= */
+
+.card-icon{
+    font-size:58px;
+    color:#f97316;
+    text-align:center;
+    margin-bottom:22px;
+}
+
+.learning-card.active .card-icon{
+    color:#f97316;
+}
+
+/* ================= TITLE ================= */
+
+.learning-card h2{
+    text-align:center;
+    font-family:'Playfair Display', serif;
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:22px;
+    color:#1f2937;
+}
+
+.learning-card.active h2{
+    color:#1f2937;
+}
+
+/* ================= TEXT ================= */
+
+.learning-card p{
+    text-align:center;
+    font-size:22px;
+    line-height:1.8;
+    color:#374151;
+    margin-bottom:30px;
+}
+
+/* ================= LIST ================= */
+
+.feature-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.feature-list li{
+    font-size:21px;
+    color:#374151;
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+}
+
+.feature-list li i{
+    color:#f97316;
+    font-size:20px;
+    margin-right:12px;
+    font-weight:bold;
+}
+
+.learning-card.active .feature-list li i{
+    color:#f97316;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1200px){
+
+    .section-title h1{
+    font-size:56px;
+    }
+
+    .learning-card h2{
+    font-size:34px;
+    }
+
+    .learning-card p{
+    font-size:18px;
+    }
+
+    .feature-list li{
+    font-size:18px;
+    }
+}
+
+@media(max-width:991px){
+
+    .learning-card{
+    margin-bottom:25px;
+    }
+
+    .section-title h1{
+    font-size:48px;
+    }
+}
+
+@media(max-width:767px){
+
+    .learning-section{
+    padding:60px 0;
+    }
+
+    .section-title{
+    margin-bottom:40px;
+    }
+
+    .section-title h1{
+    font-size:38px;
+    }
+
+    .section-title p{
+    font-size:17px;
+    }
+
+    .learning-card{
+    padding:35px 25px;
+    }
+
+    .learning-card h2{
+    font-size:30px;
+    }
+
+    .learning-card p{
+    font-size:16px;
+    }
+
+    .feature-list li{
+    font-size:16px;
+    }
+
+    .card-icon{
+    font-size:48px;
+    }
+}
+
+@media(max-width:480px){
+
+    .section-title h1{
+    font-size:32px;
+    }
+
+    .learning-card h2{
+    font-size:26px;
+    }
+}
+
+/* ================= SECTION ================= */
+
+.yoga-section{
+    position:relative;
+    padding:70px 0;
+    overflow:hidden;
+    background:
+    linear-gradient(
+    135deg,
+    #22c55e,
+    #19c37d
+    );
+}
+
+/* background shape */
+
+.yoga-section::before{
+    content:"";
+    position:absolute;
+    top:-120px;
+    right:-120px;
+    width:600px;
+    height:600px;
+    background:rgba(255,255,255,0.04);
+    border-radius:50%;
+}
+
+.yoga-section::after{
+    content:"";
+    position:absolute;
+    bottom:-180px;
+    left:-180px;
+    width:500px;
+    height:500px;
+    background:rgba(255,255,255,0.03);
+    border-radius:50%;
+}
+
+/* ================= HEADER ================= */
+
+.section-header{
+    text-align:center;
+    margin-bottom:60px;
+    position:relative;
+    z-index:2;
+}
+
+.section-header .icon{
+    font-size:40px;
+    color:#fff;
+    margin-bottom:10px;
+}
+
+.section-header h1{
+    font-family:'Playfair Display', serif;
+    font-size:52px;
+    color:#fff;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.section-header p{
+    color:#eaffef;
+    font-size:17px;
+    font-weight:500;
+    margin:0;
+}
+
+/* ================= CONTENT ================= */
+
+.content-wrapper{
+    position:relative;
+    z-index:2;
+}
+
+/* ================= LEFT CARD ================= */
+
+.info-card{
+    background:#f3f3f3;
+    border-radius:22px;
+    padding:40px;
+    height:100%;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.info-card h2{
+    font-family:'Playfair Display', serif;
+    font-size:38px;
+    color:#1f2937;
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+.info-card .desc{
+    font-size:16px;
+    line-height:1.9;
+    color:#4b5563;
+    margin-bottom:28px;
+}
+
+.feature-title{
+    font-weight:700;
+    color:#1f2937;
+    margin-bottom:25px;
+    font-size:18px;
+}
+
+/* ================= FEATURE LIST ================= */
+
+.feature-item{
+    display:flex;
+    align-items:flex-start;
+    margin-bottom:22px;
+}
+
+.feature-icon{
+    width:45px;
+    height:45px;
+    background:#dcfce7;
+    color:#16a34a;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-right:16px;
+    flex-shrink:0;
+}
+
+.feature-content h4{
+    font-size:18px;
+    font-weight:600;
+    color:#1f2937;
+    margin-bottom:5px;
+}
+
+.feature-content p{
+    font-size:15px;
+    color:#6b7280;
+    margin:0;
+    line-height:1.7;
+}
+
+/* ================= NOTE BOX ================= */
+
+.note-box{
+    background:#e8f5ea;
+    border-radius:14px;
+    padding:16px 18px;
+    margin-top:30px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.note-box i{
+    color:#16a34a;
+    font-size:18px;
+}
+
+.note-box p{
+    margin:0;
+    font-size:14px;
+    color:#374151;
+    font-weight:500;
+}
+
+/* ================= BUTTON ================= */
+
+.join-btn{
+    margin-top:28px;
+    display:inline-block;
+    padding:14px 28px;
+    background:#16a34a;
+    color:#fff;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.join-btn:hover{
+    background:#15803d;
+    color:#fff;
+    transform:translateY(-3px);
+}
+
+/* ================= IMAGE GRID ================= */
+
+.image-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    align-items:center;
+    height:100%;
+}
+
+.image-grid img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:16px;
+    transition:0.4s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.image-grid img:hover{
+    transform:scale(1.04);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1199px){
+
+    .info-card h2{
+    font-size:32px;
+    }
+
+    .section-header h1{
+    font-size:44px;
+    }
+}
+
+@media(max-width:991px){
+
+    .image-grid{
+    margin-top:35px;
+    }
+
+    .image-grid img{
+    height:200px;
+    }
+
+    .section-header{
+    margin-bottom:45px;
+    }
+}
+
+@media(max-width:767px){
+
+    .yoga-section{
+    padding:60px 0;
+    }
+
+    .section-header h1{
+    font-size:34px;
+    }
+
+    .section-header p{
+    font-size:15px;
+    }
+
+    .info-card{
+    padding:28px;
+    }
+
+    .info-card h2{
+    font-size:28px;
+    }
+
+    .image-grid{
+    grid-template-columns:1fr;
+    }
+
+    .image-grid img{
+    height:230px;
+    }
+}
+
+@media(max-width:480px){
+
+    .section-header h1{
+    font-size:28px;
+    }
+
+    .info-card h2{
+    font-size:24px;
+    }
+
+    .feature-content h4{
+    font-size:16px;
+    }
+
+    .feature-content p{
+    font-size:14px;
+    }
+}
+
+/* ================= YOGA WELLNESS FINAL LAYOUT ================= */
+
+.yoga-section {
+    padding: 56px 0 !important;
+    background:
+    linear-gradient(rgba(31, 190, 115, 0.94), rgba(31, 190, 115, 0.94)),
+    url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600&auto=format&fit=crop') !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.yoga-section .section-header {
+    margin-bottom: 38px !important;
+}
+
+.yoga-section .content-wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    align-items: center !important;
+}
+
+.yoga-section .info-card {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 30px 28px;
+    background: #ffffff !important;
+    border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(16, 98, 62, 0.2);
+    text-align: left;
+}
+
+.yoga-section .info-card h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    line-height: 1.25;
+    color: #253142 !important;
+    margin: 0 0 18px;
+    text-align: left;
+}
+
+.yoga-section .info-card .desc {
+    font-size: 12px;
+    line-height: 1.75;
+    color: #687384 !important;
+    margin: 0 0 18px;
+    text-align: left;
+}
+
+.yoga-section .feature-title {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #253142 !important;
+    margin: 0 0 16px;
+    text-align: left;
+}
+
+.yoga-section .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.yoga-section .feature-icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    margin: 0;
+    background: transparent !important;
+    color: #20bf6b !important;
+    border-radius: 0;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.yoga-section .feature-icon i {
+    color: #20bf6b !important;
+}
+
+.yoga-section .feature-content h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    line-height: 1.25;
+    color: #253142 !important;
+    margin: 0 0 4px;
+    text-align: left;
+}
+
+.yoga-section .feature-content p {
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: #687384 !important;
+    margin: 0;
+    text-align: left;
+}
+
+.yoga-section .note-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 22px;
+    padding: 14px 15px;
+    background: #effdf5 !important;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.yoga-section .note-box i {
+    color: #20bf6b !important;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+.yoga-section .note-box p {
+    color: #4b5563 !important;
+    font-size: 12px;
+    line-height: 1.55;
+    margin: 0;
+    text-align: left;
+}
+
+.yoga-section .join-btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 22px;
+    background: #10a85b;
+    color: #ffffff !important;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.yoga-section .join-btn:hover {
+    background: #0d8f4d;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+.yoga-section .image-grid {
+    max-width: 500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.yoga-section .image-grid img {
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.yoga-section .image-grid img:hover {
+    transform: scale(1.03);
+}
+
+@media(max-width:991px) {
+    .yoga-section .image-grid {
+        margin-top: 28px;
+        max-width: 520px;
+    }
+}
+
+@media(max-width:576px) {
+    .yoga-section {
+        padding: 44px 14px !important;
+    }
+
+    .yoga-section .info-card {
+        max-width: 100%;
+        padding: 28px 22px;
+    }
+
+    .yoga-section .info-card h2 {
+        font-size: 20px;
+    }
+
+    .yoga-section .image-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .yoga-section .image-grid img {
+        height: 180px;
+    }
+}

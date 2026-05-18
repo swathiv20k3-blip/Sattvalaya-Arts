@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/img/img-1.jpg">
+    <link rel="preload" as="image" href="assets/img/img-3.jpg">
+    <link rel="preload" as="image" href="assets/img/img-4.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="boxicons.min.css">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fffaf5;
+        }
+
+        .custom-navbar {
+            margin-top: 0 !important;
+            padding: 0.9rem 0;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1100;
+        }
+
+        .custom-navbar .container-fluid {
+            padding-left: clamp(1rem, 3vw, 2rem);
+            padding-right: clamp(1rem, 3vw, 2rem);
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            min-width: 0;
+        }
+
+        .logo-section img {
+            width: clamp(42px, 6vw, 58px);
+            height: auto;
+            display: block;
+        }
+
+        .brand-text {
+            min-width: 0;
+        }
+
+        .brand-text h2 {
+            margin: 0;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.45rem, 2.2vw, 2.1rem);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1;
+            color: #13233f;
+            text-transform: capitalize;
+        }
+
+        .brand-text p {
+            margin: 0.25rem 0 0;
+            font-size: clamp(0.74rem, 1.2vw, 0.95rem);
+            color: #8b5e34;
+            letter-spacing: 0.08em;
+        }
+
+        .desktop-menu {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.75rem, 1.8vw, 1.4rem);
+            margin-left: auto;
+            flex-wrap: wrap;
+        }
+
+        .desktop-menu a {
+            text-decoration: none;
+            color: #13233f;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .desktop-menu a:hover {
+            color: #c96f1d;
+        }
+
+        .navbar-toggler {
+            margin-left: auto;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .hero-slider {
+            margin-top: 0;
+            padding: clamp(0.75rem, 2vw, 1.25rem);
+            position: relative;
+            background: #f8f2ea;
+        }
+
+        .slide {
+            min-height: min(78vh, 720px);
+            border-radius: 2rem;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            background-color: #d8b27c;
+            transition: opacity 0.45s ease;
+        }
+
+        .hero-slider .slide:not(.active) {
+            display: none;
+        }
+
+        .slide .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(14, 10, 6, 0.72), rgba(14, 10, 6, 0.18));
+        }
+
+        .slide .content {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            max-width: 680px;
+            padding: clamp(1.5rem, 5vw, 4rem);
+        }
+
+        .slide .content h1 {
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            line-height: 1.05;
+            margin-bottom: 1rem;
+        }
+
+        .slide .content p {
+            font-size: clamp(1rem, 2vw, 1.35rem);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            max-width: 34rem;
+        }
+
+        .slide .content button,
+        .about-btn {
+            border: 0;
+            border-radius: 999px;
+            padding: 0.9rem 1.6rem;
+            background: linear-gradient(135deg, #ff8f2d, #ff5b2e);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .social-icons {
+            position: fixed;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .social-icons a,
+        .whatsapp {
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            color: #13233f;
+            border-radius: 14px;
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
+            text-decoration: none;
+        }
+
+        .whatsapp {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            background: #22c55e;
+            color: #fff;
+            z-index: 1000;
+            border-radius: 50%;
+        }
+
+        .choose-section,
+        .about-section,
+        .classes-section,
+        .gallery-section {
+            padding: clamp(2.5rem, 6vw, 5rem) clamp(1rem, 3vw, 2rem);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            height: 100%;
+            border: 0;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+        }
+
+        .card img,
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+
+        .mobile-sidebar {
+            max-width: 260px;
+            width: 72%;
+            background: #ffffff !important;
+            box-shadow: -16px 0 34px rgba(15, 23, 42, 0.12);
+            z-index: 1201;
+        }
+
+        .menu-overlay {
+            background: transparent !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            z-index: 1199;
+        }
+
+        @media (max-width: 991.98px) {
+            .desktop-menu {
+                display: none;
+            }
+
+            .brand-text h2 {
+                font-size: 1.3rem;
+            }
+
+            .slide {
+                min-height: 68vh;
+                border-radius: 1.5rem;
+            }
+
+            .mobile-sidebar {
+                width: 68%;
+                max-width: 240px;
+            }
+
+            .cards,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item.wide {
+                grid-column: span 1;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-toggler {
+                display: none;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .custom-navbar .container-fluid {
+                align-items: center;
+            }
+
+            .logo-section {
+                gap: 0.65rem;
+                max-width: calc(100% - 56px);
+            }
+
+            .brand-text h2 {
+                font-size: 1.1rem;
+            }
+
+            .brand-text p {
+                font-size: 0.68rem;
+                letter-spacing: 0.05em;
+            }
+
+            .slide .content {
+                padding: 1.35rem;
+            }
+
+            .slide .content h1 {
+                font-size: 2.1rem;
+            }
+
+            .slide .content p {
+                font-size: 1rem;
+            }
+
+            .hero-slider {
+                padding: 0.65rem;
+            }
+
+            .social-icons {
+                left: 0.5rem;
+                gap: 0.5rem;
+            }
+
+            .social-icons a {
+                width: 42px;
+                height: 42px;
+                border-radius: 12px;
+            }
+        }
+
+        .footer-social-icons {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 1.25rem;
+        }
+
+        .footer-social-icons a {
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #ffffff;
+            color: #ff7b00;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.14);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .footer-social-icons a:hover {
+            transform: translateY(-4px);
+            background: #fff4e8;
+        }
+
+        .about-points {
+            margin: 1.25rem 0 1.5rem;
+            padding-left: 1.25rem;
+            text-align: left;
+            color: #ffffff;
+        }
+
+        .about-points li {
+            margin-bottom: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .about-btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .about-text .about-btn:first-of-type {
+            display: block;
+            margin-top: 0;
+            padding: 0;
+            background: transparent !important;
+            border-radius: 0 !important;
+            color: inherit !important;
+            box-shadow: none !important;
+        }
+
+        .about-text .about-btn:first-of-type:hover {
+            background: transparent !important;
+            color: inherit !important;
+        }
+
+        .about-text .about-btn:last-of-type {
+            display: inline-block;
+            margin-top: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+<!-- ================= LOADING SCREEN ================= -->
+
+<div id="loader">
+  <img src="assets/img/rajiroshanlogo.png" alt="logo">
+  <h1>NATARAJI ARTS</h1>
+  <p>DIVINE HARMONY LOADING</p>
+</div>
+
+<div id="main-content">
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg custom-navbar">
+
+  <div class="container-fluid">
+
+    <!-- LOGO -->
+    <div class="logo-section">
+
+      <img src="assets/img/rajiroshanlogo.png" alt="logo">
+
+      <div class="brand-text">
+        <h2>Sattvalaya Arts</h2>
+        <p>Harmony of Sound and Soul</p>
+      </div>
+
+    </div>
+
+    <!-- DESKTOP MENU -->
+    <div class="desktop-menu">
+
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="classes.html">Classes</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+
+    </div>
+
+    <!-- MOBILE HAMBURGER -->
+    <button class="navbar-toggler border-0 shadow-none"
+      type="button"
+      id="menuToggle">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+  </div>
+
+</nav>
+
+<!-- ================= OVERLAY ================= -->
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- ================= MOBILE SIDEBAR ================= -->
+
+<div class="mobile-sidebar" id="mobileSidebar">
+
+  <!-- CLOSE BUTTON -->
+  <div class="close-btn" id="closeMenu">
+    ✕
+  </div>
+
+  <!-- MOBILE MENU -->
+  <ul class="mobile-menu">
+
+    <li><a href="index.html">Home</a></li>
+
+    <li><a href="about.html">About</a></li>
+
+    <li><a href="classes.html">Classes</a></li>
+
+    <li><a href="gallery.html">Gallery</a></li>
+
+    <li><a href="events.html">Events</a></li>
+
+    <li><a href="contact.html">Contact</a></li>
+
+  </ul>
+
+</div>
+
+
+  <!-- ================= SOCIAL ICONS ================= -->
+
+  <div class="social-icons">
+
+    <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+
+    <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+
+    <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+
+    <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+
+  </div>
+
+  <!-- ================= HERO SECTION / SLIDER ================= -->
+
+<section class="hero-slider">
+
+  <!-- SLIDE 1 -->
+  <div class="slide active"
+       style="background-image:url('assets/img/img-1.jpg');">
+
+      <div class="overlay"></div>
+
+      <div class="content">
+          <h1>Welcome to Nataraji Arts</h1>
+
+          <p>
+            Experience the divine harmony of Veena, Yoga & Traditional Arts
+          </p>
+
+          <button>Get Started Today</button>
+      </div>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide"
+       style="background-image:url('assets/img/img-4.jpg');">
+
+      <div class="overlay"></div>
+
+      <div class="content">
+          <h1>Master the Divine Veena</h1>
+
+          <p>
+            Learn from experienced teachers in the heart of San Jose, California
+          </p>
+
+          <button>Join Classes</button>
+      </div>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide"
+       style="background-image:url('assets/img/combine\ img.png');">
+
+      <div class="overlay"></div>
+
+      <div class="content">
+          <h1>Find Your Inner Balance</h1>
+
+          <p>
+           Join our Yoga & Meditation classes for holistic wellness
+          </p>
+
+          <button>Explore More</button>
+      </div>
+  </div>
+
+</section>
+
+  <!-- ================= WHATSAPP ================= -->
+
+  <a href="https://wa.me/+12133044799?text=How%20can%20I%20Help%20You" class="whatsapp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+
+<!-- ================= WHY CHOOSE SECTION ================= -->
+
+<section class="choose-section">
+
+  <div class="container-fluid">
+
+    <!-- TITLE -->
+
+    <div class="section-title">
+
+      <h1>Why Choose Nataraji Arts</h1>
+
+      <div class="underline"></div>
+
+      <p>
+        Discover the perfect blend of tradition,
+        expertise, and holistic learning
+      </p>
+
+    </div>
+
+    <!-- FIRST ROW -->
+
+    <div class="row card-row g-4">
+
+      <!-- CARD 1 -->
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="choose-card card1">
+
+          <div class="icon-box">
+            <i class="fas fa-music"></i>
+          </div>
+
+          <h2>Expert Veena Training</h2>
+
+          <p>
+            Learn from Rajalakshmi Roshan,
+            trained under renowned Guru Shri
+            V. S. Rangarajan, with strong
+            foundation in technique and theory.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 2 -->
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="choose-card card2">
+
+          <div class="icon-box">
+            <i class="fas fa-spa"></i>
+          </div>
+
+          <h2>Holistic Wellness</h2>
+
+          <p>
+            Certified Ashtanga & Vinyasa yoga
+            classes combining strength,
+            flexibility, and mindfulness for
+            complete well-being.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 3 -->
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="choose-card card3">
+
+          <div class="icon-box">
+            <i class="fas fa-chalkboard"></i>
+          </div>
+
+          <h2>Flexible Learning for Modern Lifestyles</h2>
+
+          <p>
+            In-person classes in the Bay Area, along with online and hybrid options, make it easy to stay consistent—whether you are a beginner, a returning learner, or learning alongside family.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SECOND ROW -->
+
+    <div class="row g-4">
+
+      <!-- CARD 4 -->
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="choose-card card4">
+
+          <div class="icon-box">
+            <i class="fas fa-certificate"></i>
+          </div>
+
+          <h2>Certified Programs</h2>
+
+          <p>
+            Structured curriculum with recognized
+            certifications and performance
+            opportunities for dedicated students.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 5 -->
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="choose-card card5">
+
+          <div class="icon-box">
+            <i class="fas fa-handshake"></i>
+          </div>
+
+          <h2>Community Support</h2>
+
+          <p>
+            Join a vibrant community of learners,
+            share experiences, and grow together
+            in your artistic journey.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 6 -->
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="choose-card card6">
+
+          <div class="icon-box">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+
+          <h2>Regular Events</h2>
+
+          <p>
+            Participate in concerts, workshops,
+            and cultural events that celebrate
+            and preserve traditional arts.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- ================= ABOUT SECTION ================= -->
+
+<section class="about-section">
+
+  <div class="content-box">
+
+    <h1>
+      Meet Rajalakshmi Roshan
+    </h1>
+
+    <div class="underline"></div>
+
+          <ul class="about-points">
+            <li>
+              Founded in 2022 by Rajalakshmi Roshan, Sattvalaya Arts began as an
+              initiative to nurture and educate aspiring students in the Veena.
+              Rooted in tradition, the teaching approach guides students through
+              both discipline and discovery.
+            </li>
+            <li>
+              Classes focus on music theory, technique, and the nuanced art of
+              playing the Veena, while fostering creativity and a deep love for
+              the instrument. Each lesson is thoughtfully structured to balance
+              technical precision with expressive growth.
+            </li>
+            <li>
+              In addition to Veena training, Sattvalaya Arts offers yoga and
+              meditation classes that support overall well-being, helping
+              students cultivate balance in body, mind, and spirit.
+            </li>
+            <li>
+              To ensure meaningful learning, class sizes are kept small so
+              every student receives individual attention and personalized
+              guidance throughout their journey.
+            </li>
+            <li>
+              Classes are offered in San Jose, California, as well as through
+              online and hybrid formats, welcoming students from around the world.
+            </li>
+          </ul>
+    
+          <a href="about.html" class="about-btn">Meet the teacher</a>
+    
+
+  </div>
+
+</section>
+<br>
+<section class="classes-section">
+
+    <div class="section-title">
+      <h2>The Sattvalaya Approach</h2>
+    </div>
+
+    <div class="cards">
+
+      <!-- Veena Card -->
+
+      <div class="card">
+
+        <img src="assets/img/card-1.jpg" alt="Veena">
+
+        <div class="card-content">
+
+          <div class="card-title">
+            <span class="icon orange">🎵</span>
+            <h3>A Foundation in Classical Veena</h3>
+          </div>
+
+          <p>
+           Learn classical veena through a strong foundation in technique, rhythm, and bhava.
+           Training is guided with respect to tradition while making learning accessible and joyful for all levels.
+          </p>
+
+          <div class="features">
+
+                <div class="feature-box">
+                    <i class="fa-solid fa-users orange-icon"></i>
+                    <span>All Levels</span>
+                </div>
+
+                <div class="feature-box">
+                    <i class="fa-solid fa-clock orange-icon"></i>
+                    <span>Flexible Hours</span>
+                </div>
+
+                <div class="feature-box">
+                    <i class="fa-solid fa-certificate orange-icon"></i>
+                    <span>Certified</span>
+                </div>
+
+            </div>
+
+          <a href="classes.html" class="view-btn orange-link">
+            View Details →
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- Yoga Card -->
+
+      <div class="card">
+
+        <img src="assets/img/card-2.jpg" alt="Yoga">
+
+        <div class="card-content">
+
+          <div class="card-title">
+            <span class="icon green">🧘</span>
+            <h3>Holistic Mind-Body Practice</h3>
+          </div>
+
+          <p>
+            Through breath, movement, and mindful awareness, our yoga sessions build strength, flexibility, and inner stillness.
+            The practice fosters balance and clarity, supporting overall well-being in daily life.
+          </p>
+
+        <div class="features">
+
+            <div class="feature-box green-box">
+                <i class="fa-solid fa-heart-pulse green-icon"></i>
+                <span>All Ages</span>
+            </div>
+
+            <div class="feature-box green-box">
+                <i class="fa-solid fa-house green-icon"></i>
+                <span>Virtual/Live</span>
+            </div>
+
+            <div class="feature-box green-box">
+                <i class="fa-solid fa-medal green-icon"></i>
+                <span>Expert Led</span>
+            </div>
+
+        </div>
+
+          <a href="classes.html" class="view-btn green-link">
+            View Details →
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+</section>
+<br>
+<section class="gallery-section">
+
+    <div class="section-title">
+      <h2>Moments of Beauty</h2>
+      <p>Capturing the essence of divine arts and peaceful practice</p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <img src="assets/img/gal-1.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/img/gal-2.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/img/gal-4.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/img/gal-3.jpg">
+      </div>
+
+      <div class="gallery-item wide">
+        <img src="assets/img/img-4.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/img/gal-6.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/img/gal-5.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/img/gal-7.jpg">
+      </div>
+
+    </div>
+
+</section>
+
+ <section class="testimonial-section">
+
+    <h1 class="section-title">
+       What Our Students Say
+    </h1>
+
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+
+      <div class="swiper-wrapper">
+
+        <!-- CARD 1 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+
+            <div class="quote">”</div>
+
+            <div class="profile-img">
+              <img src="assets/img/vikram.jpg">
+            </div>
+
+            <h3>Vikram Reddy</h3>
+
+            <p class="role">Advanced Student</p>
+
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p class="testimonial-text">
+               "The structured curriculum and personalized attention have helped me progress rapidly. I
+                performed my first recital last month, and it was an unforgettable experience!"
+            </p>
+
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+
+            <div class="quote">”</div>
+
+            <div class="profile-img">
+              <img src="assets/img/anjali.jpg">
+            </div>
+
+            <h3>Anjali Desai</h3>
+
+            <p class="role">Yoga & Veena Student</p>
+
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p class="testimonial-text">
+               "Taking both Veena and Yoga classes has been the best decision. The holistic approach
+                helps me connect with both my artistic and spiritual sides. Highly recommended!"
+            </p>
+
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+
+            <div class="quote">”</div>
+
+            <div class="profile-img">
+              <img src="assets/img/Karthik Iyer.jpg">
+            </div>
+
+            <h3>Karthik Iyer</h3>
+
+            <p class="role">Beginner Student</p>
+
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p class="testimonial-text">
+               "As a complete beginner, I was nervous about starting. But the supportive environment
+                and excellent teaching methods made learning so enjoyable. I can't wait for each class!"
+            </p>
+
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+
+            <div class="quote">”</div>
+
+            <div class="profile-img">
+              <img src="assets/img/priya dharma.jpg">
+            </div>
+
+            <h3>Priya Sharma</h3>
+
+            <p class="role">Veena Student</p>
+
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p class="testimonial-text">
+               "Learning Veena from Rajalakshmi has been a transformative experience. Her patience,
+                expertise, and passion for teaching are truly inspiring. I've grown so much as a
+                musician in just one year!"
+            </p>
+
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+
+            <div class="quote">”</div>
+
+            <div class="profile-img">
+              <img src="assets/img/Arjun.jpg">
+            </div>
+
+            <h3>Arjun Patel</h3>
+
+            <p class="role">Yoga Practitioner</p>
+
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p class="testimonial-text">
+              "The yoga classes have completely changed my life. I feel more balanced, energetic, and
+               focused. The combination of Ashtanga and Vinyasa is perfect for building strength and
+               flexibility."
+            </p>
+
+          </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+
+            <div class="quote">”</div>
+
+            <div class="profile-img">
+              <img src="assets/img/mera krishnan.jpg">
+            </div>
+
+            <h3>Meera Krishnan</h3>
+
+            <p class="role">Virtual Student</p>
+
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p class="testimonial-text">
+               "Nataraji Arts is more than just a music school - it's a community. The virtual
+                classes are excellent, and I love being able to learn traditional arts from anywhere in
+                the world."
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="testimonial-pagination-wrap">
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </section>
+
+ <section class="cta-section">
+
+    <div class="cta-icon">
+      <i class="fa-solid fa-fire"></i>
+    </div>
+
+    <h1>Begin Your Journey Today</h1>
+
+    <p>
+      Join Nataraji Arts and discover the transformative power of music and wellness
+    </p>
+
+    <div class="cta-buttons">
+
+      <a href="contact.html" class="btn btn-primary">
+        <i class="fa-solid fa-phone"></i>
+        Contact Us Now
+      </a>
+
+      <a href="#" class="btn btn-outline">
+        <i class="fa-solid fa-briefcase"></i>
+        View Classes
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+      FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-container">
+
+      <!-- COLUMN 1 -->
+      <div>
+
+        <div class="footer-logo">
+
+          <!-- YOUR LOGO -->
+          <img src="assets/img/rajiroshanlogo.png" alt="">
+
+          <h2>Nataraji Arts</h2>
+
+        </div>
+
+        <p class="footer-about">
+          Nurturing the divine arts of Veena and holistic wellness since 2022
+        </p>
+
+        <div class="footer-social-icons">
+
+          <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+
+          <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+
+          <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+
+          <a href="https://youtube.com"><i class="fab fa-twitter"></i></a>
+
+        </div>
+
+      </div>
+
+      <!-- COLUMN 2 -->
+      <div>
+
+        <h3 class="footer-title">Quick Links</h3>
+
+        <div class="footer-links">
+
+          <a href="#">
+            <i class="fa-solid fa-angle-right"></i>
+            About Us
+          </a>
+
+          <a href="#">
+            <i class="fa-solid fa-angle-right"></i>
+            Classes
+          </a>
+
+          <a href="#">
+            <i class="fa-solid fa-angle-right"></i>
+            Gallery
+          </a>
+
+          <a href="#">
+            <i class="fa-solid fa-angle-right"></i>
+            Events
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- COLUMN 3 -->
+      <div>
+
+        <h3 class="footer-title">Contact Info</h3>
+
+        <div class="contact-info">
+
+          <p>
+            <i class="fa-solid fa-location-dot"></i>
+            San Jose, California
+          </p>
+
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            info@natarajiarts.com
+          </p>
+
+          <p>
+            <i class="fa-solid fa-phone"></i>
+            +1 (213) 304-4799
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- COLUMN 4 -->
+      <div>
+
+        <h3 class="footer-title">Newsletter</h3>
+
+        <div class="newsletter">
+
+          <p>
+            Subscribe for updates and events
+          </p>
+
+          <div class="newsletter-box">
+
+            <input type="email" placeholder="Your email">
+
+            <button>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+
+    <div class="copyright">
+
+      © 2025 Copyright Techvoice Solutions.
+      All Rights Reserved.
+      <span>
+        Crafted with ❤️ for preserving divine traditions
+      </span>
+
+    </div>
+
+  </footer>
+
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src='script.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>   
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.3/dist/boxicons.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    AOS.init();
+</script>
+
+  <script>
+
+    var swiper = new Swiper(".mySwiper", {
+
+      loop:true,
+      spaceBetween:30,
+      autoplay:{
+        delay:2500,
+        disableOnInteraction:false,
+      },
+
+      pagination: {
+        el: ".swiper-pagination",
+        clickable:true,
+      },
+
+      /* RESPONSIVE */
+      breakpoints: {
+
+        0: {
+          slidesPerView:1,
+        },
+
+        768: {
+          slidesPerView:2,
+        },
+
+        1024: {
+          slidesPerView:3,
+        }
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>

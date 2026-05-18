@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes</title>
+    <link rel="stylesheet" href="classes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/img/img-1.jpg">
+    <link rel="preload" as="image" href="assets/img/img-3.jpg">
+    <link rel="preload" as="image" href="assets/img/img-4.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="boxicons.min.css">
+      <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+     <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fffaf5;
+        }
+
+        .custom-navbar {
+            margin-top: 0 !important;
+            padding: 0.9rem 0;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1100;
+        }
+
+        .custom-navbar .container-fluid {
+            padding-left: clamp(1rem, 3vw, 2rem);
+            padding-right: clamp(1rem, 3vw, 2rem);
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            min-width: 0;
+        }
+
+        .logo-section img {
+            width: clamp(42px, 6vw, 58px);
+            height: auto;
+            display: block;
+        }
+
+        .brand-text {
+            min-width: 0;
+        }
+
+        .brand-text h2 {
+            margin: 0;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.45rem, 2.2vw, 2.1rem);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1;
+            color: #13233f;
+            text-transform: capitalize;
+        }
+
+        .brand-text p {
+            margin: 0.25rem 0 0;
+            font-size: clamp(0.74rem, 1.2vw, 0.95rem);
+            color: #8b5e34;
+            letter-spacing: 0.08em;
+        }
+
+        .desktop-menu {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.75rem, 1.8vw, 1.4rem);
+            margin-left: auto;
+            flex-wrap: wrap;
+        }
+
+        .desktop-menu a {
+            text-decoration: none;
+            color: #13233f;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .desktop-menu a:hover {
+            color: #c96f1d;
+        }
+
+        .navbar-toggler {
+            margin-left: auto;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .hero-slider {
+            margin-top: 0;
+            padding: clamp(0.75rem, 2vw, 1.25rem);
+            position: relative;
+            background: #f8f2ea;
+        }
+
+        .slide {
+            min-height: min(78vh, 720px);
+            border-radius: 2rem;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            background-color: #d8b27c;
+            transition: opacity 0.45s ease;
+        }
+
+        .hero-slider .slide:not(.active) {
+            display: none;
+        }
+
+        .slide .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(14, 10, 6, 0.72), rgba(14, 10, 6, 0.18));
+        }
+
+        .slide .content {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            max-width: 680px;
+            padding: clamp(1.5rem, 5vw, 4rem);
+        }
+
+        .slide .content h1 {
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            line-height: 1.05;
+            margin-bottom: 1rem;
+        }
+
+        .slide .content p {
+            font-size: clamp(1rem, 2vw, 1.35rem);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            max-width: 34rem;
+        }
+
+        .slide .content button,
+        .about-btn {
+            border: 0;
+            border-radius: 999px;
+            padding: 0.9rem 1.6rem;
+            background: linear-gradient(135deg, #ff8f2d, #ff5b2e);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .social-icons {
+            position: fixed;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .social-icons a,
+        .whatsapp {
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            color: #13233f;
+            border-radius: 14px;
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
+            text-decoration: none;
+        }
+
+        .whatsapp {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            background: #22c55e;
+            color: #fff;
+            z-index: 1000;
+            border-radius: 50%;
+        }
+
+        .choose-section,
+        .about-section,
+        .classes-section,
+        .gallery-section {
+            padding: clamp(2.5rem, 6vw, 5rem) clamp(1rem, 3vw, 2rem);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            height: 100%;
+            border: 0;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+        }
+
+        .card img,
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+
+        .mobile-sidebar {
+            max-width: 260px;
+            width: 72%;
+            background: #ffffff !important;
+            box-shadow: -16px 0 34px rgba(15, 23, 42, 0.12);
+            z-index: 1201;
+        }
+
+        .menu-overlay {
+            background: transparent !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            z-index: 1199;
+        }
+
+        @media (max-width: 991.98px) {
+            .desktop-menu {
+                display: none;
+            }
+
+            .brand-text h2 {
+                font-size: 1.3rem;
+            }
+
+            .slide {
+                min-height: 68vh;
+                border-radius: 1.5rem;
+            }
+
+            .mobile-sidebar {
+                width: 68%;
+                max-width: 240px;
+            }
+
+            .cards,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item.wide {
+                grid-column: span 1;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-toggler {
+                display: none;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .custom-navbar .container-fluid {
+                align-items: center;
+            }
+
+            .logo-section {
+                gap: 0.65rem;
+                max-width: calc(100% - 56px);
+            }
+
+            .brand-text h2 {
+                font-size: 1.1rem;
+            }
+
+            .brand-text p {
+                font-size: 0.68rem;
+                letter-spacing: 0.05em;
+            }
+
+            .slide .content {
+                padding: 1.35rem;
+            }
+
+            .slide .content h1 {
+                font-size: 2.1rem;
+            }
+
+            .slide .content p {
+                font-size: 1rem;
+            }
+
+            .hero-slider {
+                padding: 0.65rem;
+            }
+
+            .social-icons {
+                left: 0.5rem;
+                gap: 0.5rem;
+            }
+
+            .social-icons a {
+                width: 42px;
+                height: 42px;
+                border-radius: 12px;
+            }
+        }
+
+        .footer-social-icons {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 1.25rem;
+        }
+
+        .footer-social-icons a {
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #ffffff;
+            color: #ff7b00;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.14);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .footer-social-icons a:hover {
+            transform: translateY(-4px);
+            background: #fff4e8;
+        }
+    </style>
+</head>
+<body>
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg custom-navbar">
+
+  <div class="container-fluid">
+
+    <!-- LOGO -->
+    <div class="logo-section">
+
+      <img src="assets/img/rajiroshanlogo.png" alt="logo">
+
+      <div class="brand-text">
+        <h2>Sattvalaya Arts</h2>
+        <p>Harmony of Sound and Soul</p>
+      </div>
+
+    </div>
+
+    <!-- DESKTOP MENU -->
+    <div class="desktop-menu">
+
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="classes.html">Classes</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+
+    </div>
+
+    <!-- MOBILE HAMBURGER -->
+    <button class="navbar-toggler border-0 shadow-none"
+      type="button"
+      id="menuToggle">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+  </div>
+
+</nav>
+
+<!-- ================= OVERLAY ================= -->
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- ================= MOBILE SIDEBAR ================= -->
+
+<div class="mobile-sidebar" id="mobileSidebar">
+
+  <!-- CLOSE BUTTON -->
+  <div class="close-btn" id="closeMenu">
+    ✕
+  </div>
+
+  <!-- MOBILE MENU -->
+  <ul class="mobile-menu">
+
+    <li><a href="index.html">Home</a></li>
+
+    <li><a href="about.html">About</a></li>
+
+    <li><a href="classes.html">Classes</a></li>
+
+    <li><a href="gallery.html">Gallery</a></li>
+
+    <li><a href="events.html">Events</a></li>
+
+    <li><a href="contact.html">Contact</a></li>
+
+  </ul>
+
+</div>
+
+
+  <!-- ================= SOCIAL ICONS ================= -->
+
+  <div class="social-icons">
+
+    <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+
+    <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+
+    <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+
+    <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+
+  </div>
+
+  <!-- ================= HERO SECTION ================= -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-content">
+
+      <h1>Our Classes</h1>
+
+      <p class="subtitle">
+        Explore our comprehensive programs in Veena and Yoga
+      </p>
+
+      <div class="class-box">
+
+        <i class="fa-solid fa-music"></i>
+
+        <h2>Veena Classes</h2>
+
+        <p>
+          The Veena is among the most ancient and divine
+          stringed instruments of India.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= FIRST CARD ================= -->
+
+<section class="classes-section">
+
+  <div class="container">
+
+    <div class="class-card">
+
+      <!-- IMAGE -->
+
+      <div class="class-image">
+
+        <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=1200&auto=format&fit=crop">
+
+      </div>
+
+      <!-- CONTENT -->
+
+      <div class="class-content">
+
+        <div class="badge">
+          Beginner Level
+        </div>
+
+        <h1>Foundation Course</h1>
+
+        <p class="description">
+          Learn the fundamentals of Veena playing including
+          posture, hand positioning and techniques.
+        </p>
+
+        <ul class="features">
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Introduction to Veena
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Fretting techniques
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Basic swaras
+          </li>
+
+        </ul>
+
+        <a href="#" class="btn">
+          Enroll Now
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= SECOND CARD ================= -->
+
+<section class="classes-section">
+
+  <div class="container">
+
+    <div class="course-card">
+
+      <!-- IMAGE -->
+
+      <div class="course-image">
+
+        <img src="https://images.unsplash.com/photo-1514119412350-e174d90d280e?q=80&w=1200&auto=format&fit=crop">
+
+      </div>
+
+      <!-- CONTENT -->
+
+      <div class="course-content">
+
+        <div class="badge">
+          Intermediate Level
+        </div>
+
+        <h1>Advanced Techniques</h1>
+
+        <p class="description">
+          Build your skills with advanced musical lessons
+          and compositions.
+        </p>
+
+        <ul class="features">
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Adi Tala Varnams
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Rhythm understanding
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Musical maturity
+          </li>
+
+        </ul>
+
+        <a href="#" class="btn">
+          Enroll Now
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= ADVANCED LEVEL ================= -->
+
+<section class="classes-section">
+
+  <div class="container">
+
+    <div class="advanced-card">
+
+      <!-- LEFT IMAGE -->
+
+      <div class="advanced-image">
+
+        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop">
+
+      </div>
+
+      <!-- RIGHT CONTENT -->
+
+      <div class="advanced-content">
+
+        <div class="badge">
+          Advanced Level
+        </div>
+
+        <h1>Master Performance Course</h1>
+
+        <p class="description">
+          Master classical Veena techniques, stage performance skills,
+          and advanced musical expressions.
+        </p>
+
+        <ul class="features">
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Advanced Raaga practice
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Stage performance training
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Improvisation techniques
+          </li>
+
+        </ul>
+
+        <a href="#" class="btn">
+          Enroll Now
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- ================= SECTION ================= -->
+
+<section class="yoga-section">
+
+  <div class="container">
+
+    <!-- HEADER -->
+
+    <div class="section-header">
+
+      <div class="icon">
+        <i class="bi bi-flower1"></i>
+      </div>
+
+      <h1>Yoga & Wellness Classes</h1>
+
+      <p>
+        Move, breathe, and feel your best —
+        a little calm and balance for every day
+      </p>
+
+    </div>
+
+    <!-- CONTENT -->
+
+    <div class="row align-items-center g-4 content-wrapper">
+
+      <!-- LEFT SIDE -->
+
+      <div class="col-lg-5">
+
+        <div class="info-card">
+
+          <h2>
+            60-Minute Comprehensive Sessions
+          </h2>
+
+          <p class="desc">
+            Our yoga classes combine the best of Ashtanga
+            and Vinyasa styles, guided by Rajalakshmi Roshan
+            who brings scientific understanding and decades
+            of practice to every session.
+          </p>
+
+          <div class="feature-title">
+            Each Class Includes:
+          </div>
+
+          <!-- ITEM -->
+
+          <div class="feature-item">
+
+            <div class="feature-icon">
+              <i class="bi bi-wind"></i>
+            </div>
+
+            <div class="feature-content">
+              <h4>Pranayama (Breathwork)</h4>
+
+              <p>
+                Center the mind and energize the body
+                through conscious breathing
+              </p>
+            </div>
+
+          </div>
+
+          <!-- ITEM -->
+
+          <div class="feature-item">
+
+            <div class="feature-icon">
+              <i class="bi bi-person-arms-up"></i>
+            </div>
+
+            <div class="feature-content">
+              <h4>Ashtanga Sequences</h4>
+
+              <p>
+                Build strength, endurance,
+                and discipline
+              </p>
+            </div>
+
+          </div>
+
+          <!-- ITEM -->
+
+          <div class="feature-item">
+
+            <div class="feature-icon">
+              <i class="bi bi-water"></i>
+            </div>
+
+            <div class="feature-content">
+              <h4>Vinyasa Flow</h4>
+
+              <p>
+                Enhance flexibility and fluidity
+                with flowing movements
+              </p>
+            </div>
+
+          </div>
+
+          <!-- ITEM -->
+
+          <div class="feature-item">
+
+            <div class="feature-icon">
+              <i class="bi bi-heart-pulse"></i>
+            </div>
+
+            <div class="feature-content">
+              <h4>Parasympathetic Activation</h4>
+
+              <p>
+                Reduce stress and anxiety
+                through targeted practices
+              </p>
+            </div>
+
+          </div>
+
+          <!-- NOTE -->
+
+          <div class="note-box">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+            <p>
+              All ages and levels welcome —
+              no prior experience
+            </p>
+
+          </div>
+
+          <!-- BUTTON -->
+
+          <a href="#" class="join-btn">
+            Join a Class
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT SIDE -->
+
+      <div class="col-lg-7">
+
+        <div class="image-grid">
+
+          <img
+            src="assets/img/gal-2.jpg"
+            alt=""
+          >
+
+          <img
+            src="assets/img/card-2.jpg"
+            alt=""
+          >
+
+          <img
+            src="assets/img/img-3.jpg"
+            alt=""
+          >
+
+          <img
+            src="assets/img/with yogamat.jpg"
+            alt=""
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SECTION ================= -->
+
+<section class="learning-section">
+
+  <div class="container">
+
+    <!-- TITLE -->
+
+    <div class="section-title">
+
+      <h1>Flexible Learning Options</h1>
+
+      <div class="title-line"></div>
+
+      <p>
+        Choose the format that works best for you
+      </p>
+
+    </div>
+
+    <!-- CARDS -->
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- CARD 1 -->
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="learning-card">
+
+          <div class="card-icon">
+            <i class="bi bi-building"></i>
+          </div>
+
+          <h2>In-Person</h2>
+
+          <p>
+            Traditional face-to-face learning in San Jose,
+            California with personalized attention
+          </p>
+
+          <ul class="feature-list">
+
+            <li>
+              <i class="bi bi-check-lg"></i>
+              Direct guidance
+            </li>
+
+            <li>
+              <i class="bi bi-check-lg"></i>
+              Hands-on corrections
+            </li>
+
+            <li>
+              <i class="bi bi-check-lg"></i>
+              Community atmosphere
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 2 -->
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="learning-card active">
+
+          <div class="card-icon">
+            <i class="bi bi-laptop"></i>
+          </div>
+
+          <h2>Virtual</h2>
+
+          <p>
+            Learn from anywhere in the world with live
+            online sessions via video call
+          </p>
+
+          <ul class="feature-list">
+
+            <li>
+              <i class="bi bi-check-lg"></i>
+              Learn from home
+            </li>
+
+            <li>
+              <i class="bi bi-check-lg"></i>
+              Flexible scheduling
+            </li>
+
+            <li>
+              <i class="bi bi-check-lg"></i>
+              Worldwide access
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 3 -->
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="learning-card">
+
+          <div class="card-icon">
+            <i class="bi bi-infinity"></i>
+          </div>
+
+          <h2>Hybrid</h2>
+
+          <p>
+            Combine in-person and virtual sessions
+            for ultimate flexibility
+          </p>
+
+          <ul class="feature-list">
+
+            <li>
+              <i class="bi bi-check-lg"></i>
+              Best of both worlds
+            </li>
+
+            <li>
+              <i class="bi bi-check-lg"></i>
+              Adapt to schedule
+            </li>
+
+            <li>
+              <i class="bi bi-check-lg"></i>
+              Maximum convenience
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="cta-section">
+
+<div class="cta-icon">
+    <i class="fa-solid fa-fire"></i>
+</div>
+
+<h1>Begin Your Journey Today</h1>
+
+<p>
+    Join Nataraji Arts and discover the transformative power of music and wellness
+</p>
+
+<div class="cta-buttons">
+
+    <a href="#" class="btn btn-primary">
+    <i class="fa-solid fa-phone"></i>
+    Contact Us Now
+    </a>
+
+    <a href="#" class="btn btn-outline">
+    <i class="fa-solid fa-briefcase"></i>
+    View Classes
+    </a>
+
+</div>
+
+</section>
+
+<!-- =========================
+    FOOTER
+========================== -->
+
+<footer>
+
+<div class="footer-container">
+
+    <!-- COLUMN 1 -->
+    <div>
+
+    <div class="footer-logo">
+
+        <!-- YOUR LOGO -->
+        <img src="assets/img/rajiroshanlogo.png" alt="">
+
+        <h2>Nataraji Arts</h2>
+
+    </div>
+
+    <p class="footer-about">
+        Nurturing the divine arts of Veena and holistic wellness since 2022
+    </p>
+
+    <div class="footer-social-icons">
+
+        <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+
+        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+
+        <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+
+        <a href="https://linkedin.com"><i class="fab fa-twitter"></i></a>
+
+    </div>
+
+    </div>
+
+    <!-- COLUMN 2 -->
+    <div>
+
+    <h3 class="footer-title">Quick Links</h3>
+
+    <div class="footer-links">
+
+        <a href="#">
+        <i class="fa-solid fa-angle-right"></i>
+        About Us
+        </a>
+
+        <a href="#">
+        <i class="fa-solid fa-angle-right"></i>
+        Classes
+        </a>
+
+        <a href="#">
+        <i class="fa-solid fa-angle-right"></i>
+        Gallery
+        </a>
+
+        <a href="#">
+        <i class="fa-solid fa-angle-right"></i>
+        Events
+        </a>
+
+    </div>
+
+    </div>
+
+    <!-- COLUMN 3 -->
+    <div>
+
+    <h3 class="footer-title">Contact Info</h3>
+
+    <div class="contact-info">
+
+        <p>
+        <i class="fa-solid fa-location-dot"></i>
+        San Jose, California
+        </p>
+
+        <p>
+        <i class="fa-solid fa-envelope"></i>
+        info@natarajiarts.com
+        </p>
+
+        <p>
+        <i class="fa-solid fa-phone"></i>
+        +1 (213) 304-4799
+        </p>
+
+    </div>
+
+    </div>
+
+    <!-- COLUMN 4 -->
+    <div>
+
+    <h3 class="footer-title">Newsletter</h3>
+
+    <div class="newsletter">
+
+        <p>
+        Subscribe for updates and events
+        </p>
+
+        <div class="newsletter-box">
+
+        <input type="email" placeholder="Your email">
+
+        <button>
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+
+        </div>
+
+    </div>
+
+    </div>
+
+</div>
+
+<!-- COPYRIGHT -->
+
+<div class="copyright">
+
+    © 2025 Copyright Techvoice Solutions.
+    All Rights Reserved.
+    <span>
+    Crafted with ❤️ for preserving divine traditions
+    </span>
+
+</div>
+
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src='script.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>   
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.3/dist/boxicons.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    AOS.init();
+</script>
+
+ 
+
+</body>
+</html>
