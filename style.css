@@ -5,6 +5,10 @@
     font-family:'Poppins',sans-serif;
 }
 
+:root{
+    --header-bg: #dff8ff;
+}
+
 body{
     background:#f5f5f5;
     overflow-x:hidden;
@@ -13,7 +17,7 @@ body{
 /* ================= NAVBAR ================= */
 
 .custom-navbar{
-  background: #dff8ff;
+  background: var(--header-bg);
   padding: 12px 20px;
 }
 
@@ -102,10 +106,17 @@ transform: scaleX(1);
   right: -100%;
   width: 180px;
   height: 70vh;
-  background: #f5f5f5;
+  background: var(--header-bg) !important;
   z-index: 9999;
   padding: 25px;
   transition: 0.4s ease;
+}
+
+.mobile-menu,
+.mobile-menu li,
+.mobile-menu li a,
+.close-btn {
+  background: transparent !important;
 }
 
 .mobile-sidebar.active{
@@ -1849,7 +1860,7 @@ transform: scaleX(1);
     inset: 0 !important;
     width: 100% !important;
     height: 100vh !important;
-    background: #f5f5f5 !important;
+    background: var(--header-bg) !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
@@ -1950,7 +1961,7 @@ html {
 }
 
 .custom-navbar {
-    background: #dff8ff !important;
+    background: var(--header-bg) !important;
     position: sticky !important;
     top: 0 !important;
     z-index: 1100 !important;
